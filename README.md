@@ -14,6 +14,14 @@ Once I log in, I'm able to play with other users that are currently logged in.
 After the game is over, the winner is able to submit their score with their input being posted and saved to the page on refresh.
 
 ## Deployed Application
+Original wireframe for Front End Application   
+  
+https://excalidraw.com/#room=ca39c9c52244c8ca3c5e,QBb1VXaSes1ve_VCjQKvJA  
+  
+Original wireframe for Back End Application  
+  
+    
+Powerpoint presentation  
 
 ## Contributions
 
