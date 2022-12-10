@@ -15,6 +15,14 @@ After the game is over, the winner is able to submit their score with their inpu
 
 ## Deployed Application
 
+Original wireframe for Front End Application
+
+https://excalidraw.com/#room=ca39c9c52244c8ca3c5e,QBb1VXaSes1ve_VCjQKvJA
+
+Original wireframe for Back End Application
+
+https://drawsql.app/teams/mike-getz/diagrams/schema-sql
+
 ## Contributions
 
 Github Contributors
