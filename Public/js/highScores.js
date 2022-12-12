@@ -10,7 +10,7 @@ var resetEl = document.getElementById("resetBox");
 resetEl.style.visibility = "hidden";
 
 // timer 
-var timeLeft = 75;
+var timeLeft = 300;
 // added event listener for click on function to start quiz and timer
 function playGame() {
     // timer that counts down from 75
