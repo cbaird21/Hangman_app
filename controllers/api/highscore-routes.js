@@ -27,13 +27,18 @@ router.get("/", async (req, res) => {
 
 //Get high-score per user
 //http://localhost:3001/highscores/:id
-router.get("/id")
-
-
-
-
-
-
-
+router.get("/highscores/:id", async (req, res) => {
+    try {
+        const highScoreData = await Highscore.findByPk(req.params.id);
+        if (!highScoreData) {
+            res.status(404).json({ message: "No user with this id!" });
+            return;
+        }
+        const highScores = highScoreData.get({ plain: true });
+        res.render('highScore', highScores);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
 
 module.exports = router;
