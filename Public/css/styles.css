@@ -1,9 +1,15 @@
 :root {
   --off-white: #fbf9f4;
+  --lt-tan: #dba570;
+  --cooler-lt-tan: #b7916f;
+  --lt-yellow: #f4d796;
+  --salmon-red:#c15252;
   --med-brown: #7f5539;
-  --deep-brown: #50292b;
+  --deep-brown: #4d351f;
+  --black-brown: #262623;
   --olive-green: #84761d;
-  --burnt-orange: #c6603a;
+  --deep-olive: #3f4c1f;
+  --burnt-orange: #bf4925;
 }
 
 header {
