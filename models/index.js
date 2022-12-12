@@ -4,7 +4,7 @@ const Word = require("./Word");
 const Phrase = require("./Phrase");
 const Hint = require("./Hint");
 
-User.hasOne(Highscore, {
+User.hasMany(Highscore, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
