@@ -7,10 +7,10 @@ const { Highscore, User } = require("../../models")
 router.get("/", async (req, res) => {
     try {
         const highScoreData = await Highscore.findAll({
-            include: [{
-                model: User,
-                attributes: ["username"],
-            }],
+            // include: [{
+            //     model: User,
+            //     attributes: ["username"],
+            // }],
         });
 
         const highScores = highScoreData.map((highScore) =>
@@ -30,20 +30,22 @@ router.get("/", async (req, res) => {
 });
 
 //Get high-score per user
-//http://localhost:3001/api/highscores/username
-router.get("/highscores/username", async (req, res) => {
+//http://localhost:3001/api/highscores/:username
+router.get("/:username", async (req, res) => {
     try {
-        const highScoreData = await Highscore.findBy(req.params.username);
+        const highScoreData = await Highscore.findOne({ where: { username: req.params.username } });
         if (!highScoreData) {
-            res.status(404).json({ message: "No user with this id!" });
+            res.status(404).json({ message: "No user with this username!" });
             return;
-        }
+        };
+
         const highScores = highScoreData.get({ plain: true });
-        // res.render('highscores', highScores);
+
         res.json(highScores);
+
     } catch (err) {
         res.status(500).json(err);
-    };
+    }
 });
 
 
