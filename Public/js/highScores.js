@@ -12,7 +12,7 @@ resetEl.style.visibility = "hidden";
 // timer 
 var timeLeft = 75;
 // added event listener for click on function to start quiz and timer
-function startQuiz() {
+function playGame() {
     // timer that counts down from 75
     var timer = setInterval(function () {
         if (timeLeft > 1) {
@@ -129,4 +129,5 @@ function startQuiz() {
         questionDiv.style.visibility = "visible";
         resetEl.style.visibility = "hidden";
         startQuiz();
-    });
+    })
+};
