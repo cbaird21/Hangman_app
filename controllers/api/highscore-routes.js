@@ -1,20 +1,23 @@
 const router = require("express").Router();
 // const { json } = require("body-parser");
-const { Highscore } = require("../../models")
+const { Highscore, User } = require("../../models")
 // const withAuth = require('../utils/auth');
 
-//Get all high scores 
+//Get all high-scores 
 //http://localhost:3001/highscores
 router.get("/", async (req, res) => {
     try {
         const highScoreData = await Highscore.findAll({
+            include: [{
+                model: User
+            }],
         });
 
         const highScores = highScoreData.map((highScore) =>
             highScore.get({ plain: true })
         );
 
-        res.render('highScore', {
+        res.render('highscores', {
             highScores,
             loggedIn: req.session.loggedIn,
         });
@@ -39,6 +42,22 @@ router.get("/highscores/:id", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+});
+
+
+//Post high-score 
+//http://localhost:3001/highscores
+router.post("/", async (req, res) => {
+    try {
+        const newScore = await Highscore.create({
+            username: req.body.username,
+            score: req.body.score,
+            user_id: req.body.user_id,
+        });
+        res.status(200).json(newScore);
+    } catch (err) {
+        res.status(400).json(err)
+    }
 });
 
 module.exports = router;
