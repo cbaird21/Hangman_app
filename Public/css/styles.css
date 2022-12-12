@@ -1,3 +1,11 @@
+:root {
+  --off-white: #fbf9f4;
+  --med-brown: #7f5539;
+  --deep-brown: #50292b;
+  --olive-green: #84761d;
+  --burnt-orange: #c6603a;
+}
+
 header {
   position: relative;
   background-color: black;
@@ -40,8 +48,24 @@ header .overlay {
 
 header h1 {
   font-family: "Rye", cursive;
+  color: var(--off-white);
 }
 
 header img {
   height: 5vh;
 }
+
+footer {
+  background-color: var(--burnt-orange);
+  color: var(--off-white);
+}
+
+footer a:link {
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: var(--olive-green);
+}
+
