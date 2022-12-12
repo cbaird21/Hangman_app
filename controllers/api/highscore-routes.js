@@ -7,10 +7,10 @@ const { Highscore, User } = require("../../models")
 router.get("/", async (req, res) => {
     try {
         const highScoreData = await Highscore.findAll({
-            // include: [{
-            //     model: User,
-            //     attributes: ["username"],
-            // }],
+            include: [{
+                model: User,
+                attributes: ["id"],
+            }],
         });
 
         const highScores = highScoreData.map((highScore) =>
