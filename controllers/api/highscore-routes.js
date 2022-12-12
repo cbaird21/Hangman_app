@@ -1,7 +1,6 @@
 const router = require("express").Router();
-// const { json } = require("body-parser");
 const { Highscore, User } = require("../../models")
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 //Get all high-scores 
 //http://localhost:3001/highscores
@@ -30,7 +29,7 @@ router.get("/", async (req, res) => {
 
 //Get high-score per user
 //http://localhost:3001/highscores/:id
-router.get("/highscores/:id", async (req, res) => {
+router.get("/highscores/:id", withAuth, async (req, res) => {
     try {
         const highScoreData = await Highscore.findByPk(req.params.id);
         if (!highScoreData) {
@@ -38,7 +37,7 @@ router.get("/highscores/:id", async (req, res) => {
             return;
         }
         const highScores = highScoreData.get({ plain: true });
-        res.render('highScore', highScores);
+        res.render('highscores', highScores);
     } catch (err) {
         res.status(500).json(err);
     };
