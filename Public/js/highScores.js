@@ -32,7 +32,7 @@ function playGame() {
             clearInterval();
         }
     }, 1000);
-
+};
     // created finish function. what  to say and how to calculate the number of true answers.
     function finish() {
         questionDiv.textContent = "";
@@ -129,5 +129,4 @@ function playGame() {
         questionDiv.style.visibility = "visible";
         resetEl.style.visibility = "hidden";
         startQuiz();
-    })
-};
+    });
