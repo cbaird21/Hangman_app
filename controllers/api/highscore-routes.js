@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { Highscore, User } = require("../../models")
-const withAuth = require('../../utils/auth');
 
 //Get all high-scores 
 //http://localhost:3001/api/highscores
