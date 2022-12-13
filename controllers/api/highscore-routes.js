@@ -6,12 +6,12 @@ const { Highscore, User } = require("../../models")
 //tests good
 router.get("/", async (req, res) => {
     try {
-        const highScoreData = await Highscore.findAll({
-            include: [{
-                model: User,
-                attributes: ["id"],
-            }],
-        });
+        const highScoreData = await Highscore.findAll();
+        //removed below include block, redundant information being returned 
+        // include: [{
+        //     model: User,
+        //     attributes: ["id"],
+        // }],
 
         const highScores = highScoreData.map((highScore) =>
             highScore.get({ plain: true })
@@ -36,17 +36,19 @@ router.get("/:username", async (req, res) => {
     try {
         const highScoreData = await Highscore.findOne({ where: { username: req.params.username } });
         if (!highScoreData) {
+            //error message works 
             res.status(404).json({ message: "No user with this username!" });
             return;
         };
 
         const highScores = highScoreData.get({ plain: true });
 
-        // res.json(highScores);
+        res.json(highScores);
 
-        res.render('highscores', {
-            highScores
-        });
+//below 'res.render' will be used to display highscores per username to the 'highscores.handlebars' page using the 'highScores' const above 
+        // res.render('highscores', {
+        //     highScores
+        // });
 
     } catch (err) {
         res.status(500).json(err);
@@ -59,15 +61,21 @@ router.get("/:username", async (req, res) => {
 //needs testing, user_id not showing up? 
 router.post("/", async (req, res) => {
     try {
+        //need to acccess the id of the user 
+        //acess user through session data, logged in, user id
         const newScore = await Highscore.create({
             username: req.body.username,
             score: req.body.score,
+            //added below req.body to include a user_id tag on posted scores
+            user_id: req.body.user_id,
         });
         res.status(200).json(newScore);
 
-        res.render('highscores', {
-            newScore
-        });
+        // res.render('highscores', {
+        //     newScore
+        // });
+
+        res.json(newScore);
 
     } catch (err) {
         res.status(400).json(err)
