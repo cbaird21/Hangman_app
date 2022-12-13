@@ -31,6 +31,7 @@ router.get("/", async (req, res) => {
 
 //Get high-score per user
 //http://localhost:3001/api/highscores/:username
+//tests good
 router.get("/:username", async (req, res) => {
     try {
         const highScoreData = await Highscore.findOne({ where: { username: req.params.username } });
