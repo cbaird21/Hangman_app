@@ -39,32 +39,127 @@ const wordData = [
   },
 ];
 
+function startGame() {
+  populateLetterButtons();
+}
 
+function populateLetterButtons() {
+  //populate buttons inside a table
+  // tr = table row
+  let newTr = $("<tr>");
+  // new row created every 7 letters
+  for (let i = 0; i < alphabet.length; i++) {
+    if (i === 0 || i % 7 === 0) {
+      newTr = $("<tr>");
+      newTr.append(`
+        <td>
+          <div class="card rounded mx-auto letters" data-name="${
+            alphabet[i]
+          }" data-state="false">
+            <div class="card-body" >
+              <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
+            </div>
+          </div>
+        </td>
+        `);
+    } else {
+      newTr.append(`
+        <td>
+          <div class="card rounded mx-auto letters" data-name="${
+            alphabet[i]
+          }" data-state="false">
+            <div class="card-body" >
+              <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
+            </div>
+          </div>
+        </td>
+        `);
+    }
+    $("#letterCardsInATable").append(newTr);
+  }
+}
+
+function guessALetter(guess) {
+  guessedLetters.push(guess);
+
+  // $('#lettersGuessed').text(guessedLetters.join(', '));
+  if (lettersInWord.includes(guess)) {
+    lettersInWord.forEach((letter, index) => {
+      if (letter === guess) {
+        lettersAndBlanks[index] = guess;
+      }
+    });
+    // console.log(lettersInWord);
+    // console.log(lettersAndBlanks);
+    $("#lettersAndSpaces").text(lettersAndBlanks.join(" "));
+  } else {
+    guessesLeft--;
+    $("#guessesLeft").text(guessesLeft);
+  }
+  // console.log(guess);
+}
+
+function reset() {
+  lettersInWord = [];
+  lettersAndBlanks = [];
+  // input random word
+  randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
+  guessesLeft = 7;
+  guessedLetters = [];
+  lettersInWord = randomWord.split("");
+  lettersInWord.forEach((letter) => {
+    lettersAndBlanks.push("_");
+  });
+  //generate html
+  $("#wins").text(wins);
+  $("#losses").text(losses);
+  $("#guessesLeft").text(guessesLeft);
+  $("#lettersAndSpaces").text(lettersAndBlanks.join(" "));
+  $("#letterCardsInATable").empty();
+
+  populateLetterButtons();
+}
+
+$("#letterCardsInATable").on("click", ".letters", function () {
+  //change the color when card is clicked
+  let that = this;
+  $(that).attr("data-state", true);
+  if ($(that).data("state")) {
+    $(that).addClass("bg-secondary");
+  }
+  let guess = $(that).data("name");
+  if (!guessedLetters.includes(guess)) {
+    guessALetter(guess);
+    setTimeout(roundState, 50);
+  }
+});
 
 // weavy messenger js from documentation; needs backend to function
-const weavy = new Weavy({
-  url: "{WEAVY_BACKEND_URL}",
-  tokenFactory: async () => "{ACCESS_TOKEN}",
-});
+// const weavy = new Weavy({
+//   url: "{WEAVY_BACKEND_URL}",
+//   tokenFactory: async () => "{ACCESS_TOKEN}",
+// });
 
-let messengerButton = document.getElementById("messenger-button");
-let messengerContainer = document.getElementById("messenger-container");
+// let messengerButton = document.getElementById("messenger-button");
+// let messengerContainer = document.getElementById("messenger-container");
 
-let messenger = weavy.app({
-  type: "messenger",
-  container: messengerContainer,
-  open: false,
-  badge: true,
-});
+// let messenger = weavy.app({
+//   type: "messenger",
+//   container: messengerContainer,
+//   open: false,
+//   badge: true,
+// });
 
-// Let the button toggle the messenger on click
-messengerButton.addEventListener("click", () => messenger.toggle());
+// // Let the button toggle the messenger on click
+// messengerButton.addEventListener("click", () => messenger.toggle());
 
-// Add/remove classes on the container when the messenger is opened or closed
-messenger.on("app-open", () => messengerContainer.classList.add("open"));
-messenger.on("app-close", () => messengerContainer.classList.remove("open"));
+// // Add/remove classes on the container when the messenger is opened or closed
+// messenger.on("app-open", () => messengerContainer.classList.add("open"));
+// messenger.on("app-close", () => messengerContainer.classList.remove("open"));
 
-// Update your UI with badge count from the messenger
-messenger.on("badge", (e, badge) => {
-  messengerButton.innerText = "Unread conversations: " + badge.count;
-});
+// // Update your UI with badge count from the messenger
+// messenger.on("badge", (e, badge) => {
+//   messengerButton.innerText = "Unread conversations: " + badge.count;
+// });
+
+$(".start-btn").on("click", startGame);
