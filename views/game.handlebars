@@ -1,1 +1,57 @@
-<div class="game
+    <header id="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- return to landing page -->
+        <a class="navbar-brand" href="#"><img src ="/Public/assets/haticon.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <!-- view high scores on top left and timer on top right -->
+              <a class="nav-link active" id="viewHighScore" aria-current="page" href="#">View High Scores</a>
+            </li>
+            <li class="nav-item">
+              <!-- game page only visible when logged in -->
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+          <span class="navbar-text timer">Timer</span>
+          <span class="navbar-text">
+            Logged in user name
+          </span>
+        </div>
+        </div>
+      </nav>
+
+      <!-- extra: timer not visible until quiz starts -->
+      <p id="seconds"></p>
+    </header>
+    <div id="container">
+      <!-- paragraph with header "Code Quiz", quiz directions and a start button  -->
+      <div id="questionDiv row">
+        <h1 class="text-center">Hangman</h1>
+      </div>
+    </div>      
+<div class="container">
+    <div class="row">
+      <div><h2 class="text-center">_ _ _ _ _ _ </h2>
+      <div class="col-8">
+        <img src="/Public/assets/kermit.png">
+      </div>
+        <!-- Messenger toggle button -->
+        <button id="messenger-button">Messenger</button>
+        ...
+        <!-- A container to place the messenger in (height is used to define a size on the container) -->
+        <div id="messenger-container col-4" style="height: 600px"></div>
+      </div>
+    </div>
+  </div>  
+      <div>
+        <button id="start-button">Play Game</button>
+      </div>
+      <div id="highScores"></div>
+      <div id="resetBox">
+        <button id="resetBtn">Restart Game</button>
+      </div>
