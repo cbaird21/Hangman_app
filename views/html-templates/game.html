@@ -4,29 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a66e30c900.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@weavy/dropin-js/dist/weavy-dropin.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Public/css/game.css">
     <title>Hangman</title>
   </head>
   <body>
     <header id="header">
-      <h4 id="viewHighScore">View High Scores</h4>
-      <!-- view high scores on top left and timer on top right -->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- return to landing page -->
+        <a class="navbar-brand" href="#"><img src ="/Public/assets/haticon.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <!-- view high scores on top left and timer on top right -->
+              <a class="nav-link active" id="viewHighScore" aria-current="page" href="#">View High Scores</a>
+            </li>
+            <li class="nav-item">
+              <!-- game page only visible when logged in -->
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+          <span class="navbar-text timer">Timer</span>
+          <span class="navbar-text">
+            Logged in user name
+          </span>
+        </div>
+        </div>
+      </nav>
+
       <!-- extra: timer not visible until quiz starts -->
       <p id="seconds"></p>
     </header>
     <div id="container">
       <!-- paragraph with header "Code Quiz", quiz directions and a start button  -->
-      <div id="questionDiv">
-        <h1>Hangman</h1>
-        <p>{{{body}}}</p>
+      <div id="questionDiv row">
+        <h1 class="text-center">Hangman</h1>
+      </div>
+    </div>      
+<div class="container">
+    <div class="row">
+      <div><h2 class="text-center">_ _ _ _ _ _ </h2></div>
+      <div class="col-8">
+        <img src="/Public/assets/kermit.png">
+      </div>
+        <!-- Messenger toggle button -->
+        <div id="messenger-container col-4" style="height: 300px"></div>
+        <button id="messenger-button">Messenger</button>
+        ...
+        <!-- A container to place the messenger in (height is used to define a size on the container) -->
+    </div>
+  </div>  
+      <div>
         <button id="start-button">Play Game</button>
       </div>
       <div id="highScores"></div>
       <div id="resetBox">
         <button id="resetBtn">Restart Game</button>
       </div>
-      <div></div>
-    </div>
   </body>
-  <script src="./assets/js/script.js"></script>
-</html>
+  <script src="/Public/js/game.js"></script>
+  </html>
