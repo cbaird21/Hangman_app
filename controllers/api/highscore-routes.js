@@ -6,13 +6,11 @@ const { Highscore, User } = require("../../models")
 //tests good
 router.get("/", async (req, res) => {
     try {
-        const highScoreData = await Highscore.findAll();
-        //removed below include block, redundant information being returned 
-        // include: [{
-        //     model: User,
-        //     attributes: ["id"],
-        // }],
-
+        const highScoreData = await Highscore.findAll({
+            include: [{
+                model: User
+            }],
+        });
         const highScores = highScoreData.map((highScore) =>
             highScore.get({ plain: true })
         );
@@ -45,7 +43,8 @@ router.get("/:username", async (req, res) => {
 
         res.json(highScores);
 
-//below 'res.render' will be used to display highscores per username to the 'highscores.handlebars' page using the 'highScores' const above 
+        //below 'res.render' will be used to display highscores per username to the 'highscores.handlebars' page using the 'highScores' const above
+         
         // res.render('highscores', {
         //     highScores
         // });
@@ -64,10 +63,11 @@ router.post("/", async (req, res) => {
         //need to acccess the id of the user 
         //acess user through session data, logged in, user id
         const newScore = await Highscore.create({
+            // User: req.body.User,
             username: req.body.username,
             score: req.body.score,
             //added below req.body to include a user_id tag on posted scores
-            user_id: req.body.user_id,
+            // user_id: req.body.user_id,
         });
         res.status(200).json(newScore);
 

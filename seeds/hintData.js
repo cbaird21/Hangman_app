@@ -13,6 +13,18 @@ const hintData = [
     hint: "an informal friendly greeting, particularly associated with the western states",
     word_id: 3,
   },
+  {
+    hint: "a drifter",
+    phrase_id: 1,
+  },
+  {
+    hint: "a saline spring, where animals resort for drink",
+    phrase_id: 2,
+  },
+  {
+    hint: "cheap whiskey",
+    phrase_id: 3,
+  },
 ];
 
 const seedHints = () => Hint.bulkCreate(hintData);

@@ -3,6 +3,7 @@ const seedUser = require('./userData');
 const seedHighScore = require('./highScoreData');
 const seedWords = require('./wordData');
 const seedHints = require('./hintData');
+const seedPhrases = require('./phraseData');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
@@ -15,6 +16,7 @@ const seedAll = async () => {
 
     await seedHints();
 
+    await seedPhrases();
 
     process.exit(0);
 };
