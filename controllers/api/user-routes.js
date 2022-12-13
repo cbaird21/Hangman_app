@@ -45,9 +45,11 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect useranme or password. Please try again!" });
       return;
     }
-    // Are we not missing saving the userID and username in this session, will we need to save this for scores data after the game? This is Chandlers note :) please delete, i'm just curious trying to learn!
 
+    //Saves user id, username, and that they are logged into session
     req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
       req.session.loggedIn = true;
 
       res
