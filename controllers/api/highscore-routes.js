@@ -17,11 +17,11 @@ router.get("/", async (req, res) => {
             highScore.get({ plain: true })
         );
 
-        res.json(highScores);
+        // res.json(highScores);
 
-        // res.render('highscores', {
-        //     highScores
-        // });
+        res.render('highscores', {
+            highScores
+        });
 
     } catch (err) {
         console.log(err);
@@ -42,7 +42,11 @@ router.get("/:username", async (req, res) => {
 
         const highScores = highScoreData.get({ plain: true });
 
-        res.json(highScores);
+        // res.json(highScores);
+
+        res.render('highscores', {
+            highScores
+        });
 
     } catch (err) {
         res.status(500).json(err);
@@ -52,7 +56,7 @@ router.get("/:username", async (req, res) => {
 
 //Post high-score 
 //http://localhost:3001/api/highscores
-//tests good
+//needs testing, user_id not showing up? 
 router.post("/", async (req, res) => {
     try {
         const newScore = await Highscore.create({
@@ -60,6 +64,11 @@ router.post("/", async (req, res) => {
             score: req.body.score,
         });
         res.status(200).json(newScore);
+
+        res.render('highscores', {
+            newScore
+        });
+
     } catch (err) {
         res.status(400).json(err)
     }
