@@ -27,6 +27,20 @@ var alphabet = [
   "z",
 ];
 
+const wordData = [
+  {
+    word: "cowboy hat",
+  },
+  {
+    word: "yeehaw",
+  },
+  {
+    word: "howdy",
+  },
+];
+
+
+
 // weavy messenger js from documentation; needs backend to function
 const weavy = new Weavy({
   url: "{WEAVY_BACKEND_URL}",

@@ -28,30 +28,33 @@
       <!-- extra: timer not visible until quiz starts -->
       <p id="seconds"></p>
     </header>
-    <div id="container">
-      <!-- paragraph with header "Code Quiz", quiz directions and a start button  -->
-      <div id="questionDiv row">
-        <h1 class="text-center">Hangman</h1>
-      </div>
-    </div>      
-<div class="container">
+           <section class="container my-5">
+    <!-- Use row class to create row in the container -->
     <div class="row">
-      <div><h2 class="text-center">_ _ _ _ _ _ </h2>
-      <div class="col-8">
+      <!-- Use col-* classes for different column sizes on different screens -->
+      <div class="col-12 col-md-8 col-lg-9 text-center">
+        <h1>Hangman</h1>
+        <h2>_ _ _ _ _ _ _ _ </h2>
         <img src="/Public/assets/kermit.png">
+        <p>
+          Buttons? Wrong input letters?
+        </p>
+        <div>
+          <button type="button" class="btn btn-outline-success">Play Game</button>
+        </div>
+        <div id="highScores"></div>
+        <div id="resetBox">
+          <button type="button" class="btn btn-outline-success">Reset</button>
+        </div>
       </div>
-        <!-- Messenger toggle button -->
-        <button id="messenger-button">Messenger</button>
-        ...
-        <!-- A container to place the messenger in (height is used to define a size on the container) -->
-        <div id="messenger-container col-4" style="height: 600px"></div>
+
+      <div class="col-12 col-md-4 col-lg-3">
+        <h2>Chat here, Partner</h2>
+        <ul>
+          <li>Spans 3 / 12 columns on large screens</li>
+          <li>Spans 4 / 12 columns on medium screens</li>
+          <li>Spans 12 / 12 (full-width) on smaller screens</li>
+        </ul>
       </div>
     </div>
-  </div>  
-      <div>
-        <button id="start-button">Play Game</button>
-      </div>
-      <div id="highScores"></div>
-      <div id="resetBox">
-        <button id="resetBtn">Restart Game</button>
-      </div>
+  </section>
