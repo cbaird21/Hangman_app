@@ -21,6 +21,11 @@ body h1 {
   color: var(--med-brown);
 }
 
+body h2 {
+  font-family: "Rye", cursive;
+  color: var(--med-brown);
+}
+
 .navbar {
     background-color: var(--cooler-lt-tan);
 }
@@ -39,4 +44,15 @@ header img {
 
 .timer {
     padding-right: 2vw;
+}
+
+.btn-outline-success {
+  color: var(--deep-brown);
+  outline-color: var(--deep-brown);
+  font-family: "Rye", cursive;
+  margin-bottom: 1vh;
+}
+
+.hide {
+  display: none;
 }
