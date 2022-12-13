@@ -1,5 +1,9 @@
 const router = require("express").Router();
 
+router.get('/', async (req, res) => {
+    res.render('landing', {
+        layout: 'home',
+=======
 //Homepage
 router.get("/", async (req, res) => {
   res.render("landing", {
