@@ -56,3 +56,27 @@ header img {
 .hide {
   display: none;
 }
+
+footer {
+  background-color: var(--burnt-orange);
+  color: var(--off-white);
+}
+
+footer a:link {
+  color: var(--off-white);
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: var(--olive-green);
+}
+
+.fa-github {
+  color: var(--off-white);
+  margin-right: 1vw;
+}
+
+.card {
+  color: var(--med-brown);
+    font-family: "Rye", cursive;
+}
