@@ -2,7 +2,9 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <!-- return to landing page -->
-      <a class="navbar-brand" href="/"><img src="/assets/haticon.png" /></a>
+      <a class="navbar-brand" href="http://localhost:3001" target="_blank"><img
+          src="/assets/haticon.png"
+        /></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,12 +24,13 @@
               class="nav-link active"
               id="viewHighScore"
               aria-current="page"
-              href="#"
+              href="http://localhost:3001/highscores"
+              target="_blank"
             >View High Scores</a>
           </li>
           <li class="nav-item">
             <!-- game page only visible when logged in -->
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="http://localhost:3001/logout">Logout</a>
           </li>
         </ul>
         <span class="navbar-text timer">Timer</span>
@@ -49,15 +52,19 @@
       <h1>Hangman</h1>
       <h2 id="current-word" class="hide">_ _ _ _ _ _ _ _ </h2>
       <img src="/assets/kermit.png" />
-        <table class="table">
+      <table class="table">
         <tbody id="letterCardsInATable"></tbody>
       </table>
       <div>
-        <button type="button" class="btn btn-outline-success start-btn">Play Game</button>
+        <button type="button" class="btn btn-outline-success start-btn">Play
+          Game</button>
       </div>
       <div id="highScores"></div>
       <div id="resetBox">
-        <button type="button" class="btn btn-outline-success reset-btn">Reset</button>
+        <button
+          type="button"
+          class="btn btn-outline-success reset-btn"
+        >Reset</button>
       </div>
     </div>
 
@@ -74,5 +81,6 @@
 <script
   src="https://code.jquery.com/jquery-3.6.2.min.js"
   integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"
+></script>
 <script src="/js/game.js"></script>

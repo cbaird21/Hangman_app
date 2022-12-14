@@ -1,50 +1,78 @@
 <header>
- <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-        <div class="container-fluid">
-          <!-- Navbar brand icon and top nav bar-->
-          <a class="navbar-brand nav-link" href="#">
-            <img src ="/assets/haticon.png">
-          </a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item h2 mx-3">
-                <a class="nav-link" href="#" rel="nofollow"
-                  target="_blank">Login</a>
-              </li>
-              <li class="nav-item h2 mx-3">
-                <a id= "viewHighScore" class="nav-link" href="#" target="_blank">High Scores</a>
-              </li>
-            </ul>
+  <nav
+    class="navbar navbar-expand-lg navbar-dark d-none d-lg-block"
+    style="z-index: 2000;"
+  >
+    <div class="container-fluid">
+      <!-- Navbar brand icon and top nav bar-->
+      <a
+        class="navbar-brand nav-link"
+        href="http://localhost:3001"
+        target="_blank"
+      >
+        <img src="/assets/haticon.png" />
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item h2 mx-3">
+          <a
+            class="nav-link"
+            href="http://localhost:3001/login"
+            rel="nofollow"
+            target="_blank"
+          >Login</a>
+        </li>
+        <li class="nav-item h2 mx-3">
+          <a
+            id="viewHighScore"
+            class="nav-link"
+            href="http://localhost:3001/highscores"
+            target="_blank"
+          >High Scores</a>
+        </li>
+      </ul>
 
-            <ul class="navbar-nav d-flex flex-row">
-              <!-- Github link w/ icon -->
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#" rel="nofollow" target="_blank">
-                  <i class="fa-brands fa-github h1"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <ul class="navbar-nav d-flex flex-row">
+        <!-- Github link w/ icon -->
+        <li class="nav-item me-3 me-lg-0">
+          <a
+            class="nav-link"
+            href="https://github.com/cbaird21/Hangman_app"
+            rel="nofollow"
+            target="_blank"
+          >
+            <i class="fa-brands fa-github h1"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <!-- The HTML5 video element that will create the background video on the header -->
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="/assets/tumbleweed.mp4" type="video/mp4">
+  <video
+    playsinline="playsinline"
+    autoplay="autoplay"
+    muted="muted"
+    loop="loop"
+  >
+    <source src="/assets/tumbleweed.mp4" type="video/mp4" />
   </video>
 
   <!-- The header content -->
-  {{!-- this is a comment so i have added something so maybe it will push this time --}}
+  {{! this is a comment so i have added something so maybe it will push this time }}
   <div class="container h-100">
-    <div class="d-flex h-100 text-center justify-items-center align-items-center">
+    <div
+      class="d-flex h-100 text-center justify-items-center align-items-center"
+    >
       <div class="w-100 text-white">
         <h1 class="display-3">Hangman</h1>
         <p class="lead mb-0"><strong>Play online with your friends</strong></p>
         <!-- if logged in, play button directs to game page, if not directs to login -->
-            <a
-                class="btn btn-outline-light btn-lg m-2"
-                href="#"
-                role="button"
-                rel="nofollow"
-                >Play the game</a>
+        <a
+          class="btn btn-outline-light btn-lg m-2"
+          href="http://localhost:3001/game"
+          target="_blank"
+          role="button"
+          rel="nofollow"
+        >Play the game</a>
       </div>
     </div>
   </div>
