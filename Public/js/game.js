@@ -34,17 +34,17 @@ var hangmanPic = 0;
 var hangmanImg = $("#hangman-pic");
 var hint = $("#hint");
 
-const wordData = [
-  {
-    word: "cowboy-hat",
-  },
-  {
-    word: "yeehaw",
-  },
-  {
-    word: "howdy",
-  },
-];
+// const wordData = [
+//   {
+//     word: "cowboy-hat",
+//   },
+//   {
+//     word: "yeehaw",
+//   },
+//   {
+//     word: "howdy",
+//   },
+// ];
 
 function startGame() {
   populateLetterButtons();
