@@ -1,11 +1,7 @@
 const router = require("express").Router();
 
 //Homepage
-<<<<<<< HEAD
-//http://localhost:3001/
-=======
 //http://localhost:3001
->>>>>>> main
 router.get("/", async (req, res) => {
   res.render("landing", {
     layout: "home",
