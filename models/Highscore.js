@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Highscore extends Model { }
+class Highscore extends Model {}
 
 Highscore.init(
   {
@@ -14,6 +14,10 @@ Highscore.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      reference: {
+        model: "User",
+        key: "username",
+      },
     },
     score: {
       type: DataTypes.INTEGER,
