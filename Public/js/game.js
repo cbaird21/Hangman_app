@@ -111,6 +111,7 @@ function reset() {
     lettersAndBlanks.push("_");
   });
   //generate html
+  // add html to game handlebars
   $("#wins").text(wins);
   $("#losses").text(losses);
   $("#guessesLeft").text(guessesLeft);

@@ -75,3 +75,9 @@ footer a:visited {
   color: var(--olive-green);
 }
 
+.fa-github {
+  color: var(--off-white);
+  margin-right: 1vw;
+}
+
+
