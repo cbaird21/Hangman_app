@@ -32,6 +32,7 @@ var losses = 0;
 var dashes = [];
 var hangmanPic = 0;
 var hangmanImg = $("#hangman-pic");
+var hint = $("#hint");
 
 const wordData = [
   {
@@ -153,14 +154,27 @@ function checkWin() {
     // add high score to db
     console.log("win");
     $("#wins").text(wins);
-    $("<h1>")
+    // let youWin = $("#checkMessage");
+    $("#checkMessage").text("You Win!");
+    $("#checkMessage").removeClass("hide");
+    $("#keyboard").addClass("hide");
+    $("#resetBox").removeClass("hide");
+    $("#hint").addClass("hide");
+    // hide keyboard
+    // show h1 you won
+    // display play again button
   }
 }
 
 function checkLose() {
   if (guessesLeft === 0) {
     wins = 0;
-
+    $("#checkMessage").text("You Lose :(");
+    $("#checkMessage").removeClass("hide");
+    $("#keyboard").addClass("hide");
+    $("#resetBox").removeClass("hide");
+    $("#hint").addClass("hide");
+    // display play again button
   }
 }
 
@@ -190,9 +204,16 @@ function reset() {
     // // $("#losses").text(losses);
     // // $("#guessesLeft").text(guessesLeft);
     // // TODO add hint to html
+    hint.text(response.hint.hint);
     $("#current-word").text(lettersAndBlanks.join(" "));
     $("#current-word").css("display", "block");
     $("#letterCardsInATable").empty();
+    $("#play-game").css("display", "none");
+    $("#checkMessage").addClass("hide");
+    $("#keyboard").removeClass("hide");
+    $("#resetBox").addClass("hide");
+    $("#hide").removeClass("hide");
+
     populateLetterButtons();
   })
 
@@ -212,6 +233,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
     // setTimeout(roundState, 50);
   }
   checkWin();
+  checkLose();
 });
 
 // weavy messenger js from documentation; needs backend to function
