@@ -168,5 +168,5 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 //   messengerButton.innerText = "Unread conversations: " + badge.count;
 // });
 
-$(".start-btn").on("click", startGame);
+$(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
