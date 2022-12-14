@@ -42,6 +42,8 @@ router.get("/highscores", (req, res) => {
   }
 });
 
+// can you guys please make a logout route for us? :) thanks, chan!
+
 //Github repo
 router.get("/github", (req, res) => {
   res.redirect("https://github.com/cbaird21/Hangman_app");
