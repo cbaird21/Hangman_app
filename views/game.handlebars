@@ -58,19 +58,21 @@
       <h5 id="guessesLeft"></h5>
       <h2 id="current-word" class="hide">_ _ _ _ _ _ _ _ </h2>
       <img id="hangman-pic" src="" />
-      <table class="table">
+      <p id="hint" class="text-italic"></p>
+      <h1 id="checkMessage"></h1>
+      <table id="keyboard" class="table">
         <tbody id="letterCardsInATable"></tbody>
       </table>
       <div>
-        <button type="button" class="btn btn-outline-success start-btn">Play
+        <button type="button" id="play-game" class="btn btn-outline-success start-btn">Play
           Game</button>
       </div>
       <div id="highScores"></div>
-      <div id="resetBox">
+      <div id="resetBox" class="hide">
         <button
           type="button"
           class="btn btn-outline-success reset-btn"
-        >Reset</button>
+        >Play Again?</button>
       </div>
     </div>
 
