@@ -14,7 +14,9 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", {
+    layout: "logdata",
+  });
 });
 
 //Signup page
@@ -24,7 +26,9 @@ router.get("/signup", (req, res) => {
     return;
   }
 
-  res.render("signup");
+  res.render("signup", {
+    layout: "logdata",
+  });
 });
 
 //Highscores page
@@ -49,12 +53,16 @@ router.get("/github", (req, res) => {
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
-      .redirect("/login")
+      .redirect("/login", {
+        layout: "logdata",
+      })
       .status(400)
       .json({ message: "You must be logged in to play, partner!" });
     return;
   } else {
-    res.render("game");
+    res.render("game", {
+      layout: "main",
+    });
   }
 });
 
