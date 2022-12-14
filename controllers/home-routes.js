@@ -1,7 +1,11 @@
 const router = require("express").Router();
 
 //Homepage
+<<<<<<< HEAD
 //http://localhost:3001/
+=======
+//http://localhost:3001
+>>>>>>> main
 router.get("/", async (req, res) => {
   res.render("landing", {
     layout: "home",
@@ -16,17 +20,22 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", {
+    layout: "logdata",
+  });
 });
 
 //Signup page
+//http://localhost:3001/signup
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
     return;
   }
 
-  res.render("signup");
+  res.render("signup", {
+    layout: "logdata",
+  });
 });
 
 //Highscores page
@@ -53,12 +62,16 @@ router.get("/github", (req, res) => {
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
-      .redirect("/login")
+      .redirect("/login", {
+        layout: "logdata",
+      })
       .status(400)
       .json({ message: "You must be logged in to play, partner!" });
     return;
   } else {
-    res.render("game");
+    res.render("game", {
+      layout: "main",
+    });
   }
 });
 
