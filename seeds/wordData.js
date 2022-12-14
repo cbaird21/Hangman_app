@@ -2,7 +2,7 @@ const { Word } = require("../models");
 
 const wordData = [
   {
-    word: "cowboy hat",
+    word: "cowboy-hat",
   },
   {
     word: "yeehaw",
