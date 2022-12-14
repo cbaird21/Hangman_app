@@ -32,6 +32,7 @@ var losses = 0;
 var dashes = [];
 var hangmanPic = 0;
 var hangmanImg = $("#hangman-pic");
+var hint = $("#hint");
 
 const wordData = [
   {
@@ -112,23 +113,23 @@ function guessALetter(guess) {
 // this function renders frog based on wrong guesses var hangmanPic
 function renderFrog() {
   if (hangmanPic === 1) {
-    hangmanImg.attr("src", "/assets/kermit3.png")
+    hangmanImg.attr("src", "/assets/kermit3.png");
   } else if (hangmanPic === 2) {
-    hangmanImg.attr("src", "/assets/kermit4.png")
+    hangmanImg.attr("src", "/assets/kermit4.png");
   } else if (hangmanPic === 3) {
-    hangmanImg.attr("src", "/assets/kermit5.png")
+    hangmanImg.attr("src", "/assets/kermit5.png");
   } else if (hangmanPic === 4) {
-    hangmanImg.attr("src", "/assets/kermit6.png")
+    hangmanImg.attr("src", "/assets/kermit6.png");
   } else if (hangmanPic === 5) {
-    hangmanImg.attr("src", "/assets/kermit7.png")
+    hangmanImg.attr("src", "/assets/kermit7.png");
   } else if (hangmanPic === 6) {
-    hangmanImg.attr("src", "/assets/kermit8.png")
+    hangmanImg.attr("src", "/assets/kermit8.png");
   } else if (hangmanPic === 7) {
-    hangmanImg.attr("src", "/assets/kermit.png")         
+    hangmanImg.attr("src", "/assets/kermit.png");
   } else if (hangmanPic === 0) {
-    hangmanImg.attr("src", "/assets/haticon.png")
+    hangmanImg.attr("src", "/assets/haticon.png");
   }
-};  
+}
 
 // function addDash() {
 //   for (let index = 0; index < lettersAndBlanks[0].length; index++) {
@@ -149,18 +150,31 @@ function checkWin() {
   const dashCheck = lettersAndBlanks.indexOf("_");
 
   if (dashCheck === -1) {
-    wins++
+    wins++;
     // add high score to db
     console.log("win");
     $("#wins").text(wins);
-    $("<h1>")
+    // let youWin = $("#checkMessage");
+    $("#checkMessage").text("You Win!");
+    $("#checkMessage").removeClass("hide");
+    $("#keyboard").addClass("hide");
+    $("#resetBox").removeClass("hide");
+    $("#hint").addClass("hide");
+    // hide keyboard
+    // show h1 you won
+    // display play again button
   }
 }
 
 function checkLose() {
   if (guessesLeft === 0) {
     wins = 0;
-
+    $("#checkMessage").text("You Lose :(");
+    $("#checkMessage").removeClass("hide");
+    $("#keyboard").addClass("hide");
+    $("#resetBox").removeClass("hide");
+    $("#hint").addClass("hide");
+    // display play again button
   }
 }
 
@@ -181,21 +195,28 @@ function reset() {
     lettersInWord = randomWord.split("");
     lettersInWord.forEach((letter) => {
       // lettersAndBlanks.push("_");
-      if ((letter) === "-") {
-        lettersAndBlanks.push("-")
+      if (letter === "-") {
+        lettersAndBlanks.push("-");
       } else {
-        lettersAndBlanks.push("_")
+        lettersAndBlanks.push("_");
       }
     });
     // // $("#losses").text(losses);
     // // $("#guessesLeft").text(guessesLeft);
     // // TODO add hint to html
+    // comment to try push again
+    hint.text(response.hint.hint);
     $("#current-word").text(lettersAndBlanks.join(" "));
     $("#current-word").css("display", "block");
     $("#letterCardsInATable").empty();
-    populateLetterButtons();
-  })
+    $("#play-game").css("display", "none");
+    $("#checkMessage").addClass("hide");
+    $("#keyboard").removeClass("hide");
+    $("#resetBox").addClass("hide");
+    $("#hide").removeClass("hide");
 
+    populateLetterButtons();
+  });
 }
 
 $("#letterCardsInATable").on("click", ".letters", function () {
@@ -212,6 +233,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
     // setTimeout(roundState, 50);
   }
   checkWin();
+  checkLose();
 });
 
 // weavy messenger js from documentation; needs backend to function
@@ -244,7 +266,6 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 
 $(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
-
 
 // pull word/phrase data from db
 // have user choose between words and phrases
