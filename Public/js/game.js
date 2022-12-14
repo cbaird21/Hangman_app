@@ -43,11 +43,13 @@ function startGame() {
   populateLetterButtons();
 }
 
+// creates cards from the letters in the alphabet array
 function populateLetterButtons() {
   //populate buttons inside a table
   // tr = table row
   let newTr = $("<tr>");
   // new row created every 7 letters
+  // call data-name(alphabet letter)
   for (let i = 0; i < alphabet.length; i++) {
     if (i === 0 || i % 7 === 0) {
       newTr = $("<tr>");
@@ -91,7 +93,7 @@ function guessALetter(guess) {
     });
     // console.log(lettersInWord);
     // console.log(lettersAndBlanks);
-    $("#lettersAndSpaces").text(lettersAndBlanks.join(" "));
+    $("#current-word").text(lettersAndBlanks.join(" "));
   } else {
     guessesLeft--;
     $("#guessesLeft").text(guessesLeft);
@@ -103,7 +105,8 @@ function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
   // input random word
-  randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
+  // randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
+  randomWord = wordData[0].word;
   guessesLeft = 7;
   guessedLetters = [];
   lettersInWord = randomWord.split("");
@@ -111,10 +114,12 @@ function reset() {
     lettersAndBlanks.push("_");
   });
   //generate html
-  $("#wins").text(wins);
-  $("#losses").text(losses);
-  $("#guessesLeft").text(guessesLeft);
-  $("#lettersAndSpaces").text(lettersAndBlanks.join(" "));
+  // TODO add html to game handlebars
+  // $("#wins").text(wins);
+  // $("#losses").text(losses);
+  // $("#guessesLeft").text(guessesLeft);
+  $("#current-word").text(lettersAndBlanks.join(" "));
+  $("#current-word").css("display", "block");
   $("#letterCardsInATable").empty();
 
   populateLetterButtons();
@@ -128,6 +133,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
     $(that).addClass("bg-secondary");
   }
   let guess = $(that).data("name");
+  // guessedLetters is defined in reset()
   if (!guessedLetters.includes(guess)) {
     guessALetter(guess);
     setTimeout(roundState, 50);
@@ -163,3 +169,4 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 // });
 
 $(".start-btn").on("click", startGame);
+$(".reset-btn").on("click", reset);
