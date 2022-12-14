@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 //Homepage
+//http://localhost:3001
 router.get("/", async (req, res) => {
   res.render("landing", {
     layout: "home",
@@ -8,6 +9,7 @@ router.get("/", async (req, res) => {
 });
 
 //login page
+//http://localhost:3001/login
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -20,6 +22,7 @@ router.get("/login", (req, res) => {
 });
 
 //Signup page
+//http://localhost:3001/signup
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -32,6 +35,7 @@ router.get("/signup", (req, res) => {
 });
 
 //Highscores page
+//http://localhost:3001/highscores
 router.get("/highscores", (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login").status(400).json({
@@ -50,6 +54,7 @@ router.get("/github", (req, res) => {
 });
 
 //Button to game
+//http://localhost:3001/game
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
