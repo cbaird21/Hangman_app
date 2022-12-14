@@ -150,44 +150,52 @@ function checkWin() {
 
   if (dashCheck === -1) {
     wins++
+    // add high score to db
     console.log("win");
     $("#wins").text(wins);
+    $("<h1>")
   }
 }
 
-function checkWrong() {
+function checkLose() {
+  if (guessesLeft === 0) {
+    wins = 0;
 
+  }
 }
 
 function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
   hangmanPic = 0;
-  // input random word
-  // randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
-  randomWord = wordData[0].word;
   guessesLeft = 7;
   guessedLetters = [];
-  lettersInWord = randomWord.split("");
-  lettersInWord.forEach((letter) => {
-    // lettersAndBlanks.push("_");
-    if ((letter) === "-") {
-      lettersAndBlanks.push("-")
-    } else {
-      lettersAndBlanks.push("_")
-    }
-  });
+  // input random word
+  // randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
+  $.ajax({
+    url: "/api/game/word",
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    let randomWord = response.word;
+    lettersInWord = randomWord.split("");
+    lettersInWord.forEach((letter) => {
+      // lettersAndBlanks.push("_");
+      if ((letter) === "-") {
+        lettersAndBlanks.push("-")
+      } else {
+        lettersAndBlanks.push("_")
+      }
+    });
+    // // $("#losses").text(losses);
+    // // $("#guessesLeft").text(guessesLeft);
+    // // TODO add hint to html
+    $("#current-word").text(lettersAndBlanks.join(" "));
+    $("#current-word").css("display", "block");
+    $("#letterCardsInATable").empty();
+    populateLetterButtons();
+  })
 
-  //generate html
-  // TODO add html to game handlebars
-  
-  // $("#losses").text(losses);
-  // $("#guessesLeft").text(guessesLeft);
-  $("#current-word").text(lettersAndBlanks.join(" "));
-  $("#current-word").css("display", "block");
-  $("#letterCardsInATable").empty();
-
-  populateLetterButtons();
 }
 
 $("#letterCardsInATable").on("click", ".letters", function () {
@@ -236,3 +244,8 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 
 $(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
+
+
+// pull word/phrase data from db
+// have user choose between words and phrases
+// add you win/lose feedback
