@@ -16,7 +16,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/game");
     } else {
       console.log(response);
       alert("Failed to sign up.");
@@ -25,5 +25,5 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector(".login_btn")
-  .addEventListener("click", signupFormHandler);
+  .querySelector("#signup-form")
+  .addEventListener("submit", signupFormHandler);
