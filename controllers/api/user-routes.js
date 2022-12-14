@@ -43,14 +43,14 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect useranme or password. Please try again!" });
+        .json({ message: "Incorrect username or password. Please try again!" });
       return;
     }
 
     //Saves user id, username, and that they are logged into session
     req.session.save(() => {
-      req.session.userId = user.id;
-      req.session.username = user.username;
+      req.session.userId = User.id;
+      req.session.username = User.username;
       req.session.loggedIn = true;
 
       res
