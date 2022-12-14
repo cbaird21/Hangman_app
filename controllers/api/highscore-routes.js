@@ -59,32 +59,32 @@ router.get("/:username", async (req, res) => {
 //Post high-score
 //http://localhost:3001/api/highscores
 //needs testing, user_id not showing up?
-router.post("/", async (req, res) => {
-  try {
-    const userGet = await User.findAll({
-      where: { username: req.body.username },
-    });
-    console.log(userGet[0].dataValues);
-    const userId = userGet[0].dataValues.id;
-    //need to acccess the id of the user
-    //acess user through session data, logged in, user id
-    const newScore = await Highscore.create({
-      // User: req.body.User,
-      username: req.body.username,
-      score: req.body.score,
-      user_id: userId,
-      //added below req.body to include a user_id tag on posted scores
-      // user_id: req.body.user_id,
-    });
-    // res.status(200).json(newScore);
+// router.post("/", async (req, res) => {
+//   try {
+//     const userGet = await User.findAll({
+//       where: { username: req.body.username },
+//     });
+//     console.log(userGet[0].dataValues);
+//     const userId = userGet[0].dataValues.id;
+//     //need to acccess the id of the user
+//     //acess user through session data, logged in, user id
+//     const newScore = await Highscore.create({
+//       // User: req.body.User,
+//       username: req.body.username,
+//       score: req.body.score,
+//       user_id: userId,
+//       //added below req.body to include a user_id tag on posted scores
+//       // user_id: req.body.user_id,
+//     });
+//     // res.status(200).json(newScore);
 
-    res.render("highscores", {
-      newScore,
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.render("highscores", {
+//       newScore,
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.post("/", async (req, res) => {
   if (req.session.loggedIn) {

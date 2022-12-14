@@ -10,6 +10,15 @@ const wordData = [
   {
     word: "howdy",
   },
+  {
+    word: "tarnation",
+  },
+  {
+    word: "varmint",
+  },
+  {
+    word: "yellow-belly",
+  },
 ];
 
 const seedWords = () => Word.bulkCreate(wordData);
