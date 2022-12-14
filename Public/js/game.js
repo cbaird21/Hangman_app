@@ -27,9 +27,11 @@ var alphabet = [
   "z",
 ];
 
-const wins = 0;
-const losses = 0;
-const dashes = [];
+var wins = 0;
+var losses = 0;
+var dashes = [];
+var hangmanPic = 0;
+var hangmanImg = $("#hangman-pic");
 
 const wordData = [
   {
@@ -100,29 +102,67 @@ function guessALetter(guess) {
     $("#current-word").text(lettersAndBlanks.join(" "));
   } else {
     guessesLeft--;
+    hangmanPic++;
     $("#guessesLeft").text(guessesLeft);
+    renderFrog();
   }
   // console.log(guess);
 }
 
-function addDash() {
-  for (let index = 0; index < lettersAndBlanks[0].length; index++) {
-    const dash = "_";
-    var noDash = " ";
-    if(lettersAndBlanks[0][index] === noDash) {
-      dashes.push("-");
-    } else if (lettersAndBlanks[0][index] !== noDash) {
-      dashes.push(dash)
-    }
+// this function renders frog based on wrong guesses var hangmanPic
+function renderFrog() {
+  if (hangmanPic === 1) {
+    hangmanImg.attr("src", "/assets/kermit3.png")
+  } else if (hangmanPic === 2) {
+    hangmanImg.attr("src", "/assets/kermit4.png")
+  } else if (hangmanPic === 3) {
+    hangmanImg.attr("src", "/assets/kermit5.png")
+  } else if (hangmanPic === 4) {
+    hangmanImg.attr("src", "/assets/kermit6.png")
+  } else if (hangmanPic === 5) {
+    hangmanImg.attr("src", "/assets/kermit7.png")
+  } else if (hangmanPic === 6) {
+    hangmanImg.attr("src", "/assets/kermit8.png")
+  } else if (hangmanPic === 7) {
+    hangmanImg.attr("src", "/assets/kermit.png")         
+  } else if (hangmanPic === 0) {
+    hangmanImg.attr("src", "/assets/haticon.png")
   }
-  for (i = 0; i < dashes.length; i++) {
-    $("#current-word").append(dashes[i]);
+};  
+
+// function addDash() {
+//   for (let index = 0; index < lettersAndBlanks[0].length; index++) {
+//     const dash = "_";
+//     var noDash = " ";
+//     if(lettersAndBlanks[0][index] === noDash) {
+//       dashes.push("-");
+//     } else if (lettersAndBlanks[0][index] !== noDash) {
+//       dashes.push(dash)
+//     }
+//   }
+//   for (i = 0; i < dashes.length; i++) {
+//     $("#current-word").append(dashes[i]);
+//   }
+// }
+
+function checkWin() {
+  const dashCheck = lettersAndBlanks.indexOf("_");
+
+  if (dashCheck === -1) {
+    wins++
+    console.log("win");
+    $("#wins").text(wins);
   }
+}
+
+function checkWrong() {
+
 }
 
 function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
+  hangmanPic = 0;
   // input random word
   // randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
   randomWord = wordData[0].word;
@@ -137,10 +177,10 @@ function reset() {
       lettersAndBlanks.push("_")
     }
   });
-  addDash();
+
   //generate html
   // TODO add html to game handlebars
-  // $("#wins").text(wins);
+  
   // $("#losses").text(losses);
   // $("#guessesLeft").text(guessesLeft);
   $("#current-word").text(lettersAndBlanks.join(" "));
@@ -163,6 +203,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
     guessALetter(guess);
     // setTimeout(roundState, 50);
   }
+  checkWin();
 });
 
 // weavy messenger js from documentation; needs backend to function
