@@ -82,4 +82,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Get logged in user info
+router.get("/", async (req, res) => {
+  if (req.session.loggedIn) {
+    try {
+      const userData = req.session.get(() => {
+        req.session.username;
+      });
+      res.render("game", {
+        userData,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+});
+
 module.exports = router;

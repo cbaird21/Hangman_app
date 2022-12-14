@@ -8,7 +8,16 @@ const phraseData = [
     phrase: "salt-lick",
   },
   {
-    phrase: "sheepherder's-delight",
+    phrase: "sheepherders-delight",
+  },
+  {
+    phrase: "airing-the-lungs",
+  },
+  {
+    phrase: "that-dog-wont-hunt",
+  },
+  {
+    phrase: "too-much-mustard",
   },
 ];
 
