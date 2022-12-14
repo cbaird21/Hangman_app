@@ -86,4 +86,27 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res) => {
+  if (req.session.loggedIn) {
+    try {
+      const userInfo = await req.session.get(() => {
+        req.session.username;
+      });
+      const idInfo = await req.session.get(() => {
+        req.session.userId;
+      });
+      const newScore = await Highscore.create({
+        username: userInfo,
+        score: req.body.score,
+        user_id: idInfo,
+      });
+      res.render("highscores", {
+        newScore,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+});
+
 module.exports = router;

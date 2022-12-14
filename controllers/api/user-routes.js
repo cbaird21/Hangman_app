@@ -87,7 +87,7 @@ router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
     try {
       const userData = req.session.get(() => {
-        User.username;
+        req.session.username;
       });
       res.render("game", {
         userData,
