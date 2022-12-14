@@ -27,9 +27,13 @@ var alphabet = [
   "z",
 ];
 
+const wins = 0;
+const losses = 0;
+const dashes = [];
+
 const wordData = [
   {
-    word: "cowboy hat",
+    word: "cowboy-hat",
   },
   {
     word: "yeehaw",
@@ -101,6 +105,21 @@ function guessALetter(guess) {
   // console.log(guess);
 }
 
+function addDash() {
+  for (let index = 0; index < lettersAndBlanks[0].length; index++) {
+    const dash = "_";
+    var noDash = " ";
+    if(lettersAndBlanks[0][index] === noDash) {
+      dashes.push("-");
+    } else if (lettersAndBlanks[0][index] !== noDash) {
+      dashes.push(dash)
+    }
+  }
+  for (i = 0; i < dashes.length; i++) {
+    $("#current-word").append(dashes[i]);
+  }
+}
+
 function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
@@ -111,8 +130,14 @@ function reset() {
   guessedLetters = [];
   lettersInWord = randomWord.split("");
   lettersInWord.forEach((letter) => {
-    lettersAndBlanks.push("_");
+    // lettersAndBlanks.push("_");
+    if ((letter) === "-") {
+      lettersAndBlanks.push("-")
+    } else {
+      lettersAndBlanks.push("_")
+    }
   });
+  addDash();
   //generate html
   // TODO add html to game handlebars
   // $("#wins").text(wins);
@@ -136,7 +161,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
   // guessedLetters is defined in reset()
   if (!guessedLetters.includes(guess)) {
     guessALetter(guess);
-    setTimeout(roundState, 50);
+    // setTimeout(roundState, 50);
   }
 });
 
@@ -168,5 +193,5 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 //   messengerButton.innerText = "Unread conversations: " + badge.count;
 // });
 
-$(".start-btn").on("click", startGame);
+$(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
