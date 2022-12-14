@@ -1,12 +1,8 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document
-    .querySelector(".input_user")
-    .value.trim();
-  const password = document
-    .querySelector(".input_pass")
-    .value.trim();
+  const username = document.querySelector(".input_user").value.trim();
+  const password = document.querySelector(".input_pass").value.trim();
 
   if (username && password) {
     const response = await fetch("/api/users", {
@@ -16,7 +12,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/game");
+      document.location.replace("/");
     } else {
       console.log(response);
       alert("Failed to sign up.");
