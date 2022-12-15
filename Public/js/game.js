@@ -46,6 +46,7 @@ var hint = $("#hint");
 //   },
 // ];
 
+// calls the populate buttons function and kicks off the game
 function startGame() {
   populateLetterButtons();
 }
@@ -86,6 +87,7 @@ function populateLetterButtons() {
   }
 }
 
+// this takes in the guess and tells it what to do with it, based off if it matches a letter in your word
 function guessALetter(guess) {
   guessedLetters.push(guess);
 
@@ -144,6 +146,7 @@ function renderFrog() {
 //   }
 // }
 
+// if theere are no _ left you are a winner and will be given the chance to play again
 function checkWin() {
   const dashCheck = lettersAndBlanks.indexOf("_");
 
@@ -164,6 +167,7 @@ function checkWin() {
   }
 }
 
+// This checks to see if any guesses left, if there are none you lose and have the option to play again
 function checkLose() {
   if (guessesLeft === 0) {
     wins = 0;
@@ -176,6 +180,7 @@ function checkLose() {
   }
 }
 
+// function responsible for resetting the screen to the correct starting point.
 function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
