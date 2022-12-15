@@ -211,7 +211,7 @@ function reset() {
     $("#checkMessage").addClass("hide");
     $("#keyboard").removeClass("hide");
     $("#resetBox").addClass("hide");
-    $("#hide").removeClass("hide");
+    $("#hint").removeClass("hide");
 
     populateLetterButtons();
     // This ensures cowboy had is present vs nothing 
