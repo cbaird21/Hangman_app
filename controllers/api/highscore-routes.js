@@ -86,6 +86,7 @@ router.post("/", async (req, res) => {
     try {
       const userInfo = req.session.username;
       const idInfo = req.session.userId;
+      console.log(req.session);
       console.log(userInfo);
       console.log(idInfo);
       const newScore = await Highscore.create({
