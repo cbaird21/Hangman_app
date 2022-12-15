@@ -67,7 +67,7 @@ router.get("/github", (req, res) => {
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
-      .redirect("/login", {
+      .redirect("login", {
         layout: "logdata",
       })
       .status(400)
