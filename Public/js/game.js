@@ -183,6 +183,7 @@ function checkWin() {
 function checkLose() {
   if (guessesLeft === 0) {
     wins = 0;
+    $("#score").text(wins);
     $("#checkMessage").text("You Lose :(");
     $("#checkMessage").removeClass("hide");
     $("#keyboard").addClass("hide");
