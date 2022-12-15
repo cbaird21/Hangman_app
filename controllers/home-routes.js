@@ -42,7 +42,9 @@ router.get("/highscores", (req, res) => {
       message: "You must be logged in to view highscores, ya varmint!",
     });
   } else {
-    res.render("highscores");
+    res.render("highscores", {
+      layout: "main",
+    });
   }
 });
 
