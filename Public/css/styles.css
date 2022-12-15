@@ -3,7 +3,7 @@
   --lt-tan: #dba570;
   --cooler-lt-tan: #b7916f;
   --lt-yellow: #f4d796;
-  --salmon-red:#c15252;
+  --salmon-red: #c15252;
   --med-brown: #7f5539;
   --deep-brown: #4d351f;
   --black-brown: #262623;
@@ -79,5 +79,3 @@ footer a:visited {
   color: var(--off-white);
   margin-right: 1vw;
 }
-
-
