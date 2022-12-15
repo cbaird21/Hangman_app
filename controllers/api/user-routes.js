@@ -48,8 +48,8 @@ router.post("/login", async (req, res) => {
 
     //Saves user id, username, and that they are logged into session
     req.session.save(() => {
-      req.session.userId = User.id;
-      req.session.username = User.username;
+      req.session.userId = dbUserData.id;
+      req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
       res
@@ -73,7 +73,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
     const userData = await User.findAll();
     res.status(200).json(userData);
@@ -86,12 +86,11 @@ router.get("/", async (req, res) => {
 router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
     try {
-      const userData = req.session.get(() => {
-        req.session.username;
-      });
-      res.render("game", {
-        userData,
-      });
+      const userData = req.session.username;
+      res.json(userData);
+      // res.render("game", {
+      //   userData,
+      // });
     } catch (err) {
       res.status(500).json(err);
     }

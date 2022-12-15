@@ -89,20 +89,19 @@ router.get("/:username", async (req, res) => {
 router.post("/", async (req, res) => {
   if (req.session.loggedIn) {
     try {
-      const userInfo = await req.session.get(() => {
-        req.session.username;
-      });
-      const idInfo = await req.session.get(() => {
-        req.session.userId;
-      });
+      const userInfo = req.session.username;
+      const idInfo = req.session.userId;
+      console.log(userInfo);
+      console.log(idInfo);
       const newScore = await Highscore.create({
         username: userInfo,
         score: req.body.score,
         user_id: idInfo,
       });
-      res.render("highscores", {
-        newScore,
-      });
+      res.json(newScore);
+      // res.render("highscores", {
+      //   newScore,
+      // });
     } catch (err) {
       res.status(500).json(err);
     }
