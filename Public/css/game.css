@@ -46,6 +46,10 @@ header img {
   padding-right: 2vw;
 }
 
+.nav-link {
+  color: var(--off-white);
+}
+
 .btn-outline-success {
   color: var(--deep-brown);
   outline-color: var(--deep-brown);
