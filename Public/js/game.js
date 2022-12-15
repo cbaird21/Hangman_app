@@ -46,9 +46,9 @@ const wordData = [
   },
 ];
 
-function startGame() {
-  populateLetterButtons();
-}
+// function startGame() {
+//   populateLetterButtons();
+// }
 
 // creates cards from the letters in the alphabet array
 function populateLetterButtons() {
@@ -113,19 +113,21 @@ function guessALetter(guess) {
 // this function renders frog based on wrong guesses var hangmanPic
 function renderFrog() {
   if (hangmanPic === 1) {
-    hangmanImg.attr("src", "/assets/kermit3.png");
+    hangmanImg.attr("src", "/assets/kermit1.png");
   } else if (hangmanPic === 2) {
-    hangmanImg.attr("src", "/assets/kermit4.png");
+    hangmanImg.attr("src", "/assets/kermit2.png");
   } else if (hangmanPic === 3) {
-    hangmanImg.attr("src", "/assets/kermit5.png");
+    hangmanImg.attr("src", "/assets/kermit3.png");
   } else if (hangmanPic === 4) {
-    hangmanImg.attr("src", "/assets/kermit6.png");
+    hangmanImg.attr("src", "/assets/kermit4.png");
   } else if (hangmanPic === 5) {
-    hangmanImg.attr("src", "/assets/kermit7.png");
+    hangmanImg.attr("src", "/assets/kermit5.png");
   } else if (hangmanPic === 6) {
-    hangmanImg.attr("src", "/assets/kermit8.png");
+    hangmanImg.attr("src", "/assets/kermit6.png");
   } else if (hangmanPic === 7) {
-    hangmanImg.attr("src", "/assets/kermit.png");
+    hangmanImg.attr("src", "/assets/kermit7.png");
+  } else if (hangmanPic === 8) {
+    hangmanImg.attr("src", "/assets/kermit8.png");    
   } else if (hangmanPic === 0) {
     hangmanImg.attr("src", "/assets/haticon.png");
   }
@@ -182,7 +184,7 @@ function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
   hangmanPic = 0;
-  guessesLeft = 7;
+  guessesLeft = 8;
   guessedLetters = [];
   // input random word
   // randomWord = snapshot.val()[Math.floor(Math.random() * 672)].word; //reset HAS TO live inside because of this line
