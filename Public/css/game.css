@@ -3,7 +3,7 @@
   --lt-tan: #dba570;
   --cooler-lt-tan: #b7916f;
   --lt-yellow: #f4d796;
-  --salmon-red:#c15252;
+  --salmon-red: #c15252;
   --med-brown: #7f5539;
   --deep-brown: #4d351f;
   --black-brown: #262623;
@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: var(--lt-yellow);
+  background-color: var(--lt-yellow);
 }
 
 body h1 {
@@ -27,15 +27,15 @@ body h2 {
 }
 
 .navbar {
-    background-color: var(--cooler-lt-tan);
+  background-color: var(--cooler-lt-tan);
 }
 
 .navbar a:link {
-    color: var(--off-white);
+  color: var(--off-white);
 }
 
 .navbar a:visited {
-    color: var(--deep-olive)
+  color: var(--deep-olive);
 }
 
 header img {
@@ -43,7 +43,7 @@ header img {
 }
 
 .timer {
-    padding-right: 2vw;
+  padding-right: 2vw;
 }
 
 .btn-outline-success {
@@ -78,5 +78,6 @@ footer a:visited {
 
 .card {
   color: var(--med-brown);
-    font-family: "Rye", cursive;
+  font-family: "Rye", cursive;
 }
+
