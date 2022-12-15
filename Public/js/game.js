@@ -287,3 +287,4 @@ $(".reset-btn").on("click", reset);
 // pull word/phrase data from db
 // have user choose between words and phrases
 // add you win/lose feedback
+// another comment
