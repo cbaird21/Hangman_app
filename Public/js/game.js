@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var alphabet = [
   "a",
   "b",
@@ -128,7 +130,7 @@ function renderFrog() {
   } else if (hangmanPic === 7) {
     hangmanImg.attr("src", "/assets/kermit7.png");
   } else if (hangmanPic === 8) {
-    hangmanImg.attr("src", "/assets/kermit8.png");    
+    hangmanImg.attr("src", "/assets/kermit8.png");
   } else if (hangmanPic === 0) {
     hangmanImg.attr("src", "/assets/haticon.png");
   }
@@ -167,8 +169,8 @@ function checkWin() {
     $.ajax({
       url: "/api/highscores",
       method: "POST",
-      data: {score: wins}
-    }).then (function (response) {
+      data: { score: wins }
+    }).then(function (response) {
       console.log(response)
     });
     // hide keyboard
@@ -252,32 +254,32 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 });
 
 // weavy messenger js from documentation; needs backend to function
-// const weavy = new Weavy({
-//   url: "{WEAVY_BACKEND_URL}",
-//   tokenFactory: async () => "{ACCESS_TOKEN}",
-// });
+const weavy = new Weavy({
+  url: "https://kermitters.weavy.io",
+  tokenFactory: async (refresh) => process.env.WEAVE_KEY,
+});
 
-// let messengerButton = document.getElementById("messenger-button");
-// let messengerContainer = document.getElementById("messenger-container");
+let messengerButton = document.getElementById("messenger-button");
+let messengerContainer = document.getElementById("messenger-container");
 
-// let messenger = weavy.app({
-//   type: "messenger",
-//   container: messengerContainer,
-//   open: false,
-//   badge: true,
-// });
+let messenger = weavy.app({
+  type: "messenger",
+  container: messengerContainer,
+  open: false,
+  badge: true,
+});
 
-// // Let the button toggle the messenger on click
-// messengerButton.addEventListener("click", () => messenger.toggle());
+// Let the button toggle the messenger on click
+messengerButton.addEventListener("click", () => messenger.toggle());
 
-// // Add/remove classes on the container when the messenger is opened or closed
-// messenger.on("app-open", () => messengerContainer.classList.add("open"));
-// messenger.on("app-close", () => messengerContainer.classList.remove("open"));
+// Add/remove classes on the container when the messenger is opened or closed
+messenger.on("app-open", () => messengerContainer.classList.add("open"));
+messenger.on("app-close", () => messengerContainer.classList.remove("open"));
 
-// // Update your UI with badge count from the messenger
-// messenger.on("badge", (e, badge) => {
-//   messengerButton.innerText = "Unread conversations: " + badge.count;
-// });
+// Update your UI with badge count from the messenger
+messenger.on("badge", (e, badge) => {
+  messengerButton.innerText = "Unread conversations: " + badge.count;
+});
 
 $(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
