@@ -62,9 +62,8 @@ function populateLetterButtons() {
       newTr = $("<tr>");
       newTr.append(`
         <td>
-          <div class="card rounded mx-auto letters" data-name="${
-            alphabet[i]
-          }" data-state="false">
+          <div class="card rounded mx-auto letters" data-name="${alphabet[i]
+        }" data-state="false">
             <div class="card-body" >
               <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
             </div>
@@ -74,9 +73,8 @@ function populateLetterButtons() {
     } else {
       newTr.append(`
         <td>
-          <div class="card rounded mx-auto letters" data-name="${
-            alphabet[i]
-          }" data-state="false">
+          <div class="card rounded mx-auto letters" data-name="${alphabet[i]
+        }" data-state="false">
             <div class="card-body" >
               <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
             </div>
@@ -216,6 +214,8 @@ function reset() {
     $("#hide").removeClass("hide");
 
     populateLetterButtons();
+    // This ensures cowboy had is present vs nothing 
+    renderFrog();
   });
 }
 
