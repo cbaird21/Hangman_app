@@ -157,13 +157,20 @@ function checkWin() {
     wins++;
     // add high score to db
     console.log("win");
-    $("#wins").text(wins);
+    $("#score").text(wins);
     // let youWin = $("#checkMessage");
     $("#checkMessage").text("You Win!");
     $("#checkMessage").removeClass("hide");
     $("#keyboard").addClass("hide");
     $("#resetBox").removeClass("hide");
     $("#hint").addClass("hide");
+    $.ajax({
+      url: "/api/highscores",
+      method: "POST",
+      data: {score: wins}
+    }).then (function (response) {
+      console.log(response)
+    });
     // hide keyboard
     // show h1 you won
     // display play again button
