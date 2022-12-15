@@ -30,11 +30,15 @@
           </li>
           <li class="nav-item">
             <!-- game page only visible when logged in -->
-            <a class="nav-link" href="http://localhost:3001/logout">Logout</a>
+            <a
+              class="nav-link"
+              href="http://localhost:3001/api/users/logout"
+            >Logout</a>
           </li>
         </ul>
-        <span class="navbar-text timer">Timer</span>
-        <span class="navbar-text">
+        {{!-- <span class="navbar-text timer">Timer</span> --}}
+        {{!-- gave an id to reference pulling from the DB for logged in user --}}
+        <span id="loggedInUser"class="navbar-text">
           Logged in user name
         </span>
       </div>
@@ -42,21 +46,32 @@
   </nav>
 
   <!-- extra: timer not visible until quiz starts -->
-  <p id="seconds"></p>
+  {{!-- <p id="seconds"></p> --}}
 </header>
 <section class="container my-5">
   <!-- Use row class to create row in the container -->
   <div class="row">
     <!-- Use col-* classes for different column sizes on different screens -->
+    {{!-- This is where our game will live --}}
     <div class="col-12 col-md-8 col-lg-9 text-center">
+      {{!-- title --}}
       <h1>Hangman</h1>
+      {{!-- wins being recorded here --}}
       <p>Wins:</p><h5 id="wins"></h5></p>
+      {{!-- guesses will be dynamically created here based off game results --}}
       <h5>Guesses Left:</h5>
       <h5 id="guessesLeft"></h5>
+      {{!-- current word is the id which we will dynamically push from our data base to this in our game.gs --}}
       <h2 id="current-word" class="hide">_ _ _ _ _ _ _ _ </h2>
-      <img id="hangman-pic" class="rounded" src="" />
+
+      {{!-- This is where the image is dynamically sent to, depend on the number of guesses will determine what image is shown --}}
+      <img id="hangman-pic" src="" />
+      {{!-- Hint will be our button to click, if a user desires to get a hint. This hint is being pulled from the db to our server based off word id --}}
+
       <p id="hint" class="text-italic"></p>
+      {{!-- We will prompt our user based off the game results of winning or losing --}}
       <h1 id="checkMessage"></h1>
+      {{!-- we put a digital keyboard table on the screen to click the letter guess of your choice --}}
       <table id="keyboard" class="table">
         <tbody id="letterCardsInATable"></tbody>
       </table>
@@ -64,7 +79,9 @@
         <button type="button" id="play-game" class="btn btn-outline-success start-btn">Play
           Game</button>
       </div>
+      {{!-- View highscores is here to see previous scores --}}
       <div id="highScores"></div>
+      {{!-- reset box is the reset of the game function in game.js --}}
       <div id="resetBox" class="hide">
         <button
           type="button"
@@ -72,7 +89,7 @@
         >Play Again?</button>
       </div>
     </div>
-
+{{!-- this is where our Chat box will live --}}
     <div class="col-12 col-md-4 col-lg-3">
       <h2>Chat here, Partner</h2>
       <ul>

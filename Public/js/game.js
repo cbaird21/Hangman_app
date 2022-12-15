@@ -34,21 +34,23 @@ var hangmanPic = 0;
 var hangmanImg = $("#hangman-pic");
 var hint = $("#hint");
 
-const wordData = [
-  {
-    word: "cowboy-hat",
-  },
-  {
-    word: "yeehaw",
-  },
-  {
-    word: "howdy",
-  },
-];
+// const wordData = [
+//   {
+//     word: "cowboy-hat",
+//   },
+//   {
+//     word: "yeehaw",
+//   },
+//   {
+//     word: "howdy",
+//   },
+// ];
 
 // function startGame() {
 //   populateLetterButtons();
 // }
+
+
 
 // creates cards from the letters in the alphabet array
 function populateLetterButtons() {
@@ -62,9 +64,8 @@ function populateLetterButtons() {
       newTr = $("<tr>");
       newTr.append(`
         <td>
-          <div class="card rounded mx-auto letters" data-name="${
-            alphabet[i]
-          }" data-state="false">
+          <div class="card rounded mx-auto letters" data-name="${alphabet[i]
+        }" data-state="false">
             <div class="card-body" >
               <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
             </div>
@@ -74,9 +75,8 @@ function populateLetterButtons() {
     } else {
       newTr.append(`
         <td>
-          <div class="card rounded mx-auto letters" data-name="${
-            alphabet[i]
-          }" data-state="false">
+          <div class="card rounded mx-auto letters" data-name="${alphabet[i]
+        }" data-state="false">
             <div class="card-body" >
               <h5 class="text-center">${alphabet[i].toUpperCase()}</h5>
             </div>
@@ -88,6 +88,7 @@ function populateLetterButtons() {
   }
 }
 
+// this takes in the guess and tells it what to do with it, based off if it matches a letter in your word
 function guessALetter(guess) {
   guessedLetters.push(guess);
 
@@ -148,6 +149,7 @@ function renderFrog() {
 //   }
 // }
 
+// if theere are no _ left you are a winner and will be given the chance to play again
 function checkWin() {
   const dashCheck = lettersAndBlanks.indexOf("_");
 
@@ -168,6 +170,7 @@ function checkWin() {
   }
 }
 
+// This checks to see if any guesses left, if there are none you lose and have the option to play again
 function checkLose() {
   if (guessesLeft === 0) {
     wins = 0;
@@ -180,6 +183,7 @@ function checkLose() {
   }
 }
 
+// function responsible for resetting the screen to the correct starting point.
 function reset() {
   lettersInWord = [];
   lettersAndBlanks = [];
@@ -215,9 +219,11 @@ function reset() {
     $("#checkMessage").addClass("hide");
     $("#keyboard").removeClass("hide");
     $("#resetBox").addClass("hide");
-    $("#hide").removeClass("hide");
+    $("#hint").removeClass("hide");
 
     populateLetterButtons();
+    // This ensures cowboy had is present vs nothing 
+    renderFrog();
   });
 }
 
