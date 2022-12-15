@@ -1,5 +1,5 @@
-require('dotenv').config();
-
+// require('dotenv').config();
+// console.log(process.env);
 var alphabet = [
   "a",
   "b",
@@ -256,7 +256,7 @@ $("#letterCardsInATable").on("click", ".letters", function () {
 // weavy messenger js from documentation; needs backend to function
 const weavy = new Weavy({
   url: "https://kermitters.weavy.io",
-  tokenFactory: async (refresh) => process.env.WEAVE_KEY,
+  tokenFactory: async (refresh) => 'wyu_OzrOuRcanmX20JuJ5SUSx7fHFs8imi3wnhYL',
 });
 
 let messengerButton = document.getElementById("messenger-button");
