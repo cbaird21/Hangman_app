@@ -63,9 +63,11 @@
       <h5 id="guessesLeft"></h5>
       {{!-- current word is the id which we will dynamically push from our data base to this in our game.gs --}}
       <h2 id="current-word" class="hide">_ _ _ _ _ _ _ _ </h2>
+
       {{!-- This is where the image is dynamically sent to, depend on the number of guesses will determine what image is shown --}}
       <img id="hangman-pic" src="" />
       {{!-- Hint will be our button to click, if a user desires to get a hint. This hint is being pulled from the db to our server based off word id --}}
+
       <p id="hint" class="text-italic"></p>
       {{!-- We will prompt our user based off the game results of winning or losing --}}
       <h1 id="checkMessage"></h1>
