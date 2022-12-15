@@ -48,6 +48,16 @@ router.post("/login", async (req, res) => {
       return;
     }
 
+    // const validPassword = await bcrypt.compare(
+    //   req.body.password,
+    //   dbUserData.password
+    // );
+    // // if they do not match, return error message
+    // if (!validPassword) {
+    //   res.status(400).json({ message: "Login failed. Please try again!" });
+    //   return;
+    // }
+
     //Saves user id, username, and that they are logged into session
     req.session.save(() => {
       req.session.username = dbUserData.username;
