@@ -38,20 +38,27 @@ router.get("/signup", (req, res) => {
 //Highscores page
 //http://localhost:3001/highscores
 router.get("/highscores", async (req, res) => {
-  try {
-    const highScoreData = await Highscore.findAll();
-    const highScores = highScoreData.map((highScore) =>
-      highScore.get({ plain: true })
-    );
+  if (!req.session.loggedIn) {
+    res.redirect("login");
+    // .status(400)
+    // .json({ message: "You must be logged in to see highscores, partner!" });
+    return;
+  } else {
+    try {
+      const highScoreData = await Highscore.findAll();
+      const highScores = highScoreData.map((highScore) =>
+        highScore.get({ plain: true })
+      );
 
-    // res.json(highScores);
+      // res.json(highScores);
 
-    res.render("highscores", {
-      highScores,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+      res.render("highscores", {
+        highScores,
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   }
 });
 
@@ -67,9 +74,7 @@ router.get("/github", (req, res) => {
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
-      .redirect("login", {
-        layout: "logdata",
-      })
+      .redirect("login")
       .status(400)
       .json({ message: "You must be logged in to play, partner!" });
     return;
