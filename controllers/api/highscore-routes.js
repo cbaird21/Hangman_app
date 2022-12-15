@@ -6,22 +6,16 @@ const { Highscore, User } = require("../../models");
 //tests good
 router.get("/", async (req, res) => {
   try {
-    const highScoreData = await Highscore.findAll({
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
+    const highScoreData = await Highscore.findAll();
     const highScores = highScoreData.map((highScore) =>
       highScore.get({ plain: true })
     );
 
-    res.json(highScores);
+    // res.json(highScores);
 
-    // res.render("highscores", {
-    //   highScores,
-    // });
+    res.render("highscores", {
+      highScores,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -44,13 +38,13 @@ router.get("/:username", async (req, res) => {
 
     const highScores = highScoreData.get({ plain: true });
 
-    res.json(highScores);
+    // res.json(highScores);
 
     //below 'res.render' will be used to display highscores per username to the 'highscores.handlebars' page using the 'highScores' const above
 
-    // res.render('highscores', {
-    //     highScores
-    // });
+    res.render("highscores", {
+      highScores,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -86,20 +80,20 @@ router.get("/:username", async (req, res) => {
 //   }
 // });
 
+//Post new highscore
 router.post("/", async (req, res) => {
   if (req.session.loggedIn) {
     try {
-      const userInfo = await req.session.get(() => {
-        req.session.username;
-      });
-      const idInfo = await req.session.get(() => {
-        req.session.userId;
-      });
+      const userInfo = req.session.username;
+      const idInfo = req.session.userId;
+      console.log(userInfo);
+      console.log(idInfo);
       const newScore = await Highscore.create({
         username: userInfo,
         score: req.body.score,
         user_id: idInfo,
       });
+      // res.json(newScore);
       res.render("highscores", {
         newScore,
       });
