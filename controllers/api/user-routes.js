@@ -87,10 +87,10 @@ router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
     try {
       const userData = req.session.username;
-      res.json(userData);
-      // res.render("game", {
-      //   userData,
-      // });
+      // res.json(userData);
+      res.render("game", {
+        userData,
+      });
     } catch (err) {
       res.status(500).json(err);
     }
