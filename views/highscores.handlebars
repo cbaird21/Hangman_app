@@ -1,4 +1,51 @@
-{{! highscores  }}
+{{! highscores  }}  
+<header>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <!-- return to landing page -->
+      <a class="navbar-brand" href="http://localhost:3001" target="_blank"><img
+          src="/assets/haticon.png"
+        /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <!-- view high scores on top left and timer on top right -->
+            <a
+              class="nav-link active"
+              id="viewHighScore"
+              aria-current="page"
+              href="http://localhost:3001/highscores"
+              target="_blank"
+            >View High Scores</a>
+          </li>
+          <li class="nav-item">
+            <!-- game page only visible when logged in -->
+            <a
+              class="nav-link"
+              href="http://localhost:3001/api/users/logout"
+            >Logout</a>
+          </li>
+        </ul>
+        {{!-- <span class="navbar-text timer">Timer</span> --}}
+        {{!-- gave an id to reference pulling from the DB for logged in user --}}
+        <span id="loggedInUser"class="navbar-text">
+          {{username}}
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>
 <div class="highScores-container">
   <div class="card-header">
     <h2>
@@ -7,7 +54,7 @@
   </div>
 
   <!-- We implement the built-in helper, #each. This helper will iterate over highscores -->
-  {{#each highscores as |highScore|}}
+  {{#each highScores as |highScore|}}
     <div class="highScore">
       {{! we use highscores id instead of a <od> and <li> elements}}
       <p>
@@ -18,3 +65,8 @@
     </div>
   {{/each}}
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.6.2.min.js"
+  integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+  crossorigin="anonymous"
+></script>

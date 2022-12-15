@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Highscore, User } = require("../models");
 
 //Homepage
 //http://localhost:3001
@@ -36,13 +37,21 @@ router.get("/signup", (req, res) => {
 
 //Highscores page
 //http://localhost:3001/highscores
-router.get("/highscores", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/login").status(400).json({
-      message: "You must be logged in to view highscores, ya varmint!",
+router.get("/highscores", async (req, res) => {
+  try {
+    const highScoreData = await Highscore.findAll();
+    const highScores = highScoreData.map((highScore) =>
+      highScore.get({ plain: true })
+    );
+
+    // res.json(highScores);
+
+    res.render("highscores", {
+      highScores,
     });
-  } else {
-    res.render("highscores");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
