@@ -2,7 +2,7 @@
 
 ## User Story
 
-As a user, I want to be able to log in and play Hangman with my friends. Once the game is over, I want to be able to submit my score to the high score.
+As a user, I want to be able to log in and play Hangman.. Once the game is over, I want to be able to store my score to the high score page.
 
 ## Acceptance Criteria
 
@@ -10,7 +10,7 @@ It is done when I am prompted to log in,
 then if I don't have a log in,
 I am prompted to sign up.
 Once I have signed up, I am able to then log in.  
-Once I log in, I'm able to play with other users that are currently logged in.  
+Once I log in, I'm able to play.  
 After the game is over, the winner is able to submit their score with their input being posted and saved to the page on refresh.
 
 ## Deployed Application
@@ -23,7 +23,7 @@ Original wireframe for Back End Application
 
 https://drawsql.app/teams/mike-getz/diagrams/schema-sql  
 
-Presentations  
+Presentation  
 
 https://docs.google.com/presentation/d/1P5jEXE_yGgP1WT-yLDGjL750cktZLR7R/edit#slide=id.p3  
 
