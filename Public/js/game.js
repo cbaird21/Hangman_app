@@ -166,6 +166,7 @@ function checkWin() {
     $("#keyboard").addClass("hide");
     $("#resetBox").removeClass("hide");
     $("#hint").addClass("hide");
+    $("#hint-btn").addClass("hide");
     $.ajax({
       url: "/api/highscores",
       method: "POST",
@@ -191,6 +192,11 @@ function checkLose() {
     $("#hint").addClass("hide");
     // display play again button
   }
+}
+
+function hintButton() {
+  $("#hint").removeClass("hide");
+  $("#hint-btn").addClass("hide");
 }
 
 // function responsible for resetting the screen to the correct starting point.
@@ -229,7 +235,7 @@ function reset() {
     $("#checkMessage").addClass("hide");
     $("#keyboard").removeClass("hide");
     $("#resetBox").addClass("hide");
-    $("#hint").removeClass("hide");
+    $("#hint-btn").removeClass("hide");
 
     populateLetterButtons();
     // This ensures cowboy had is present vs nothing 
@@ -284,6 +290,7 @@ messenger.on("badge", (e, badge) => {
 
 $(".start-btn").on("click", reset);
 $(".reset-btn").on("click", reset);
+$("#hint-btn").on("click", hintButton);
 
 // pull word/phrase data from db
 // have user choose between words and phrases
