@@ -74,7 +74,7 @@ router.get("/github", (req, res) => {
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
     res
-      .redirect("login")
+      .redirect("/login")
       .status(400)
       .json({ message: "You must be logged in to play, partner!" });
     return;
