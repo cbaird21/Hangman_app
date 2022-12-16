@@ -21,7 +21,15 @@ https://excalidraw.com/#room=ca39c9c52244c8ca3c5e,QBb1VXaSes1ve_VCjQKvJA
 
 Original wireframe for Back End Application
 
-https://drawsql.app/teams/mike-getz/diagrams/schema-sql
+https://drawsql.app/teams/mike-getz/diagrams/schema-sql  
+
+Presentations  
+
+https://docs.google.com/presentation/d/1P5jEXE_yGgP1WT-yLDGjL750cktZLR7R/edit#slide=id.p3  
+
+Kanban board  
+
+https://github.com/users/cbaird21/projects/3/views/1  
 
 ## Contributions
 
