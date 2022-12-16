@@ -15,21 +15,29 @@ After the game is over, the winner is able to submit their score with their inpu
 
 ## Deployed Application
 
+Deployed page image
+
+![Alt text](Public/assets/screencapture-crimekermitterhangman-herokuapp-2022-12-16-09_42_01.png)
+
+Heroku
+
+https://crimekermitterhangman.herokuapp.com/
+
 Original wireframe for Front End Application
 
 https://excalidraw.com/#room=ca39c9c52244c8ca3c5e,QBb1VXaSes1ve_VCjQKvJA
 
 Original wireframe for Back End Application
 
-https://drawsql.app/teams/mike-getz/diagrams/schema-sql  
+https://drawsql.app/teams/mike-getz/diagrams/schema-sql
 
-Presentation  
+Presentation
 
-https://docs.google.com/presentation/d/1P5jEXE_yGgP1WT-yLDGjL750cktZLR7R/edit#slide=id.p3  
+https://docs.google.com/presentation/d/1P5jEXE_yGgP1WT-yLDGjL750cktZLR7R/edit#slide=id.p3
 
-Kanban board  
+Kanban board
 
-https://github.com/users/cbaird21/projects/3/views/1  
+https://github.com/users/cbaird21/projects/3/views/1
 
 ## Contributions
 
