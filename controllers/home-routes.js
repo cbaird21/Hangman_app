@@ -73,10 +73,9 @@ router.get("/github", (req, res) => {
 //http://localhost:3001/game
 router.get("/game", (req, res) => {
   if (!req.session.loggedIn) {
-    res
-      .redirect("/login")
-      .status(400)
-      .json({ message: "You must be logged in to play, partner!" });
+    res.redirect("login");
+    // .status(400)
+    // .json({ message: "You must be logged in to play, partner!" });
     return;
   } else {
     res.render("game", {
