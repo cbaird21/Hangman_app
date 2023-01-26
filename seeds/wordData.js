@@ -19,6 +19,18 @@ const wordData = [
   {
     word: "yellow-belly",
   },
+  {
+    word: "above-board",
+  },
+  {
+    word: "ace-high"
+  },
+  {
+    word: "desert-canary"
+  },
+  {
+    word: "barn-sour"
+  },
 ];
 
 const seedWords = () => Word.bulkCreate(wordData);

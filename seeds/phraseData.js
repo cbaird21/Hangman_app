@@ -19,6 +19,18 @@ const phraseData = [
   {
     phrase: "too-much-mustard",
   },
+  {
+    phrase: "ace-in-the-hole",
+  },
+  {
+    phrase: "acknowledge-the-corn",
+  },
+  {
+    phrase: "fair-to-middlin",
+  },
+  {
+    phrase: "fine-as-cream-gravy",
+  }
 ];
 
 const seedPhrases = () => Phrase.bulkCreate(phraseData);
