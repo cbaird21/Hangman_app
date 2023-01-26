@@ -26,6 +26,22 @@ const hintData = [
     word_id: 6,
   },
   {
+    hint: "Something that is honest and legitimate.",
+    word_id: 7,
+  },
+  {
+    hint: "This term comes from poker, but was also used to refer to things that were fine, luxurious, and respectable.",
+    word_id: 8,
+  },
+  {
+    hint: "A donkey",
+    word_id: 9,
+  },
+  {
+    hint: "When a horse wants nothing more than to be in the barn.",
+    word_id: 10,
+  },
+  {
     hint: "A drifter",
     phrase_id: 1,
   },
@@ -48,6 +64,22 @@ const hintData = [
   {
     hint: "A braggart, or the quality of bragging too much",
     phrase_id: 6,
+  },
+  {
+    hint: "A hideout or a hidden gun",
+    phrase_id: 7,
+  },
+  {
+    hint: "To admit the truth, to confess a lie, or acknowledge an obvious personal shortcoming.",
+    phrase_id: 8,
+  },
+  {
+    hint: "Feeling pretty good.",
+    phrase_id: 9,
+  },
+  {
+    hint: "Very good, top-notch.",
+    phrase_id: 10,
   },
 ];
 
