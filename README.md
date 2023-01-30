@@ -1,4 +1,23 @@
-# Hangman app
+# Hangman Game
+
+## Technologies
+
+Express, Handlebars, mySql2, sequelize
+
+## Table of Contents
+
+-[Project Description](#description)  
+-[User Story](#user-story)  
+-[Acceptance Criteria](#acceptance-criteria)  
+-[Deployed Application](#deployed-application)  
+-[Presentation](#presentation)  
+-[Kanban](#kanban)  
+-[Contributions](#contributions)   
+-[License](#license)
+
+## Description
+
+Wild west Hangman game.
 
 ## User Story
 
@@ -15,13 +34,12 @@ After the game is over, the winner is able to submit their score with their inpu
 
 ## Deployed Application
 
-Deployed page image
-
-![Alt text](Public/assets/screencapture-crimekermitterhangman-herokuapp-2022-12-16-09_42_01.png)
-
-Heroku
 
 https://crimekermitterhangman.herokuapp.com/
+
+
+
+![Alt text](Public/assets/screencapture-crimekermitterhangman-herokuapp-2022-12-16-09_42_01.png)
 
 Original wireframe for Front End Application
 
@@ -31,11 +49,11 @@ Original wireframe for Back End Application
 
 https://drawsql.app/teams/mike-getz/diagrams/schema-sql
 
-Presentation
+## Presentation
 
 https://docs.google.com/presentation/d/1P5jEXE_yGgP1WT-yLDGjL750cktZLR7R/edit#slide=id.p3
 
-Kanban board
+## Kanban 
 
 https://github.com/users/cbaird21/projects/3/views/1
 
